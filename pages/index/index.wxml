@@ -1,0 +1,11 @@
+<!-- pages/index/index.wxml —— 首页结构 -->
+<view class="container">
+  <view class="title">{{motto}}</view>
+
+  <view class="card">
+    <text>当前计数:{{count}}</text>
+    <button class="btn-primary" bindtap="onTapCount">点我加一</button>
+  </view>
+
+  <button bindtap="goAbout">前往关于页</button>
+</view>

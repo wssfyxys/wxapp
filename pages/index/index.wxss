@@ -1,0 +1,18 @@
+/* pages/index/index.wxss —— 首页样式 */
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  text-align: center;
+  margin: 60rpx 0;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 40rpx;
+  margin-bottom: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24rpx;
+}

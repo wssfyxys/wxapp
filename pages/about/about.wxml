@@ -1,0 +1,7 @@
+<!-- pages/about/about.wxml —— 关于页结构 -->
+<view class="container">
+  <view class="card">
+    <text>个人小程序</text>
+    <text class="muted">版本 {{version}}</text>
+  </view>
+</view>
