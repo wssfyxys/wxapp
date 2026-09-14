@@ -1,7 +1,0 @@
-本仓库的全部 AI 开发规则在 AGENTS.md 中,请以它为准执行,要点:
-
-- 只在 feature/xxx / fix/xxx 分支开发,禁止直接推 main / dev;提交信息格式 `类型: 中文简述`(feat/fix/style/refactor/docs/chore)
-- pages/**/*.wxss 禁止裸十六进制色值,一律使用 styles/tokens.wxss 的 CSS 变量与公共类
-- 字重仅 400/500;浅底卡片禁投影;一屏一个黑色主按钮;品牌渐变不可拆解/调序/缩小
-- 新页面必须 app.json 注册 + 四件套;请求走 utils/request.js;数据更新必须 this.setData
-- 提交前运行 node scripts/check-style.js 必须通过
