@@ -1,0 +1,30 @@
+---
+description: 本仓库 AI 开发规则:Git 工作流、样式令牌、小程序工程约定
+globs:
+alwaysApply: true
+---
+
+# 小程序项目 AI 开发规则
+
+本文件对 AI 编码助手生效。完整规范见 `AGENTS.md`、`docs/DESIGN.md`、`CONTRIBUTING.md`,以下是硬性要求:
+
+## Git 工作流
+- 写代码前:确认在 `feature/xxx` 或 `fix/xxx` 分支上;不在就从 `dev` 拉一个新分支
+- 禁止直接向 `main` / `dev` 推送;合并走 Pull Request
+- 提交信息:`feat: 中文简述`(`feat`/`fix`/`style`/`refactor`/`docs`/`chore`)
+
+## 样式(最重要)
+- `pages/**/*.wxss` 中**禁止出现裸十六进制色值**,颜色一律用 `styles/tokens.wxss` 的 CSS 变量:`var(--color-ink)`、`var(--color-hairline)`、`var(--color-canvas-dark)` 等
+- 优先使用公共类,禁止复制其样式:`.band-dark` `.band-light` `.eyebrow` `.btn-primary` `.btn-mint` `.card` `.card-dark` `.card-stat` `.table-header` `.table-row` `.badge`
+- 字阶类:`.t-display-xxl/.xl/.lg/.md` `.t-body-lg/.md` `.t-caption`;字重仅 400/500
+- 圆角:默认 `--rounded-sm`;`--rounded-full` 仅悬浮按钮
+- 浅底卡片禁投影;一屏一个黑色主按钮;渐变 `--brand-gradient` 禁拆解/调序/缩小
+
+## 小程序工程
+- 新页面:`app.json` 注册 + 四件套文件,缺一不可
+- 请求统一走 `utils/request.js`,禁止直接 `wx.request`
+- 数据更新必须 `this.setData`
+
+## 提交前自检
+- 运行 `node scripts/check-style.js`,必须通过
+- 在微信开发者工具中确认页面可运行、无报错
