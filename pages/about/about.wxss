@@ -1,8 +1,8 @@
 /* pages/about/about.wxss —— 关于页样式 */
 .card {
-  background: #fff;
-  border-radius: 16rpx;
-  padding: 40rpx;
+  background: var(--color-canvas);
+  border-radius: var(--rounded-sm);
+  padding: 48rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,6 +10,6 @@
 }
 
 .muted {
-  color: #999;
+  color: var(--color-body);
   font-size: 24rpx;
 }
