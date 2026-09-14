@@ -57,6 +57,14 @@ git push origin feature/login
 3. 指定 1 名审查者;审查者需要看:代码逻辑是否正确、命名是否清晰、是否改了不相关的文件
 4. 有冲突时,由 PR 发起人自己解决:`git pull origin dev` → 解决冲突 → 重新推送
 
+### 规则的强制执行方式
+
+本仓库的规范通过三层机制强制执行,**不依赖自觉**:
+
+1. **AI 工具规则文件**:`.cursor/rules/`、`AGENTS.md`、`CLAUDE.md`、`GEMINI.md`、`.windsurfrules`、`.cursorrules`、`.github/copilot-instructions.md` —— AI 编码助手会自动读取并遵守
+2. **本地 git 钩子**(每人一次性启用):`git config core.hooksPath .githooks`,之后每次提交都会自动运行样式检查并校验提交信息格式,不合规直接拦截
+3. **远端 CI + 分支保护**:每次 PR 自动运行 `scripts/check-style.js`,不通过则 PR 显示红叉无法合并;`main` / `dev` 的分支保护规则拦截一切绕过行为
+
 ## 5. 样式规范(必须遵守)
 
 页面的视觉样式必须遵循 `docs/DESIGN.md` 设计规范:
