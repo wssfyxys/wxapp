@@ -29,6 +29,15 @@
 2. 新建 `detail.js`、`detail.json`、`detail.wxml`、`detail.wxss` 四个文件(可复制 index 页改)
 3. 在 `app.json` 的 `pages` 数组里加上 `"pages/detail/detail"`
 
+## 团队协作
+
+多人协作的完整流程见 [CONTRIBUTING.md](./CONTRIBUTING.md),要点:
+
+- 任何人不得直接向 `main` / `dev` 推送代码,必须走功能分支 + Pull Request
+- 功能分支命名:`feature/功能名` 或 `fix/问题名`
+- 提交信息格式:`feat: xxx` / `fix: xxx`
+- 每次合并至少需要 1 名成员审查通过
+
 ## 版本管理
 
 个人项目建议每完成一个小功能就提交一次:
