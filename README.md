@@ -13,7 +13,11 @@
 ```
 ├── app.js            # 小程序入口
 ├── app.json          # 全局配置(注册页面、导航栏样式)
-├── app.wxss          # 全局样式
+├── app.wxss          # 全局样式(引入设计令牌)
+├── styles/
+│   └── tokens.wxss   # 设计令牌与公共组件类(颜色/字体/圆角/按钮/卡片)
+├── docs/
+│   └── DESIGN.md     # 设计规范(开发前必读)
 ├── project.config.json
 ├── sitemap.json
 ├── pages/

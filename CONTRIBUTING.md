@@ -57,13 +57,21 @@ git push origin feature/login
 3. 指定 1 名审查者;审查者需要看:代码逻辑是否正确、命名是否清晰、是否改了不相关的文件
 4. 有冲突时,由 PR 发起人自己解决:`git pull origin dev` → 解决冲突 → 重新推送
 
-## 5. 分工约定
+## 5. 样式规范(必须遵守)
+
+页面的视觉样式必须遵循 `docs/DESIGN.md` 设计规范:
+
+- 颜色、圆角、阴影、字体一律使用 `styles/tokens.wxss` 里的 CSS 变量与公共类(`.card`、`.btn-primary`、`.band-dark`、`.eyebrow` 等),页面 WXSS 中禁止出现裸的十六进制色值
+- 一屏只允许一个黑色主按钮;浅底卡片只用 1px 描边,不加投影
+- PR 审查时按 `docs/DESIGN.md` 第 8 节的检查点核对样式
+
+## 6. 分工约定
 
 - 任务拆分记录在 GitHub Issues 中,谁认领谁在 issue 里回复"我来做",并注明分支名
 - 公共文件(`app.json`、`app.js`、`utils/` 目录)的改动需要在 PR 里特别说明原因,避免多人同时改导致频繁冲突
 - 新页面必须同时更新 `app.json` 的页面注册
 
-## 6. 冲突预防
+## 7. 冲突预防
 
 - 每天开工先 `git pull origin dev`,收工前推送自己的分支
 - 一个分支的生命周期尽量不超过 2-3 天,写完尽快合并

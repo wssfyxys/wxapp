@@ -1,0 +1,205 @@
+/**
+ * styles/tokens.wxss —— 全局设计令牌与基础组件样式
+ * 来源:docs/DESIGN.md(Together AI 风格规范)
+ * 用法:已在 app.wxss 中 @import,页面内直接使用变量和公共类,不要重复定义
+ */
+
+/* ============ 1. 颜色令牌 ============ */
+page {
+  /* 品牌 */
+  --color-primary: #000000;            /* 唯一主 CTA 色,黑色胶囊 */
+  --color-accent-orange: #fc4c02;      /* 品牌渐变第 1 站(不要单独当 UI 填充) */
+  --color-accent-magenta: #ef2cc1;     /* 品牌渐变第 2 站 */
+  --color-accent-periwinkle: #bdbbff;  /* 品牌渐变第 3 站,兼作统计卡软填充 */
+  --color-accent-mint: #c8f6f9;        /* 薄荷色:hero 次级按钮 / 统计卡 */
+
+  /* 品牌渐变:整体使用,禁止改顺序、加色站、缩小成图标 */
+  --brand-gradient: linear-gradient(90deg, #fc4c02 0%, #ef2cc1 50%, #bdbbff 100%);
+
+  /* 表面(双极模式:只有深/白两种底色,无中间灰) */
+  --color-canvas: #ffffff;             /* 白色画布:产品/表格/页脚 */
+  --color-canvas-dark: #010120;        /* 深色画布:hero/研究区块 */
+  --color-hairline: #ebebeb;           /* 浅底 1px 分隔线 / 表头底色 / 单一软表面 */
+  --color-surface-dark-soft: #26263a;  /* 深底上的分隔线与徽章底 */
+
+  /* 文字 */
+  --color-ink: #000000;                /* 浅底上的所有标题与正文 */
+  --color-body: #999999;               /* 次级文字:说明、表格次要值、页脚链接、mono 眉标 */
+  --color-on-dark: #ffffff;            /* 深底上的所有文字 */
+
+  /* 圆角 */
+  --rounded-none: 0;
+  --rounded-xs: 3.25rpx;               /* 定价页内层小胶囊/描边按钮 */
+  --rounded-sm: 8rpx;                  /* 规范圆角:按钮/卡片/表格行/徽章 */
+  --rounded-md: 16rpx;                 /* 功能 tab 胶囊、较大的定价 tab 容器 */
+  --rounded-full: 9999rpx;             /* 仅用于悬浮圆形按钮(全系统唯一全胶囊) */
+
+  /* 阴影(仅悬浮元素使用;浅底卡片一律用 1px 描边,不投影) */
+  --shadow-soft: 0 4rpx 20rpx 0 rgba(1, 1, 32, 0.1);
+}
+
+/* ============ 2. 字体令牌 ============ */
+/* 显示字体:Inter(开源替代,启用 ss01);mono:JetBrains Mono */
+page {
+  font-family: "Inter", -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+  font-feature-settings: "ss01";
+  color: var(--color-ink);
+}
+
+.font-mono {
+  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* 字阶(设计稿 px × 2 = rpx;仅用 400/500,禁止 700) */
+.t-display-xxl { font-size: 128rpx; font-weight: 500; line-height: 1.1;  letter-spacing: -3.84rpx; }  /* hero 主标题,句首大写 */
+.t-display-xl  { font-size: 80rpx;  font-weight: 500; line-height: 1.2;  letter-spacing: -1.6rpx;  }  /* 区块标题 */
+.t-display-lg  { font-size: 56rpx;  font-weight: 500; line-height: 1.15; letter-spacing: -0.84rpx; }  /* 子标题/统计大数字 */
+.t-display-md  { font-size: 44rpx;  font-weight: 500; line-height: 1.15; letter-spacing: -0.44rpx; }  /* 卡片标题 */
+.t-body-lg     { font-size: 36rpx;  font-weight: 400; line-height: 1.3;  letter-spacing: -0.36rpx; }  /* 标题下的引导段 */
+.t-body-md     { font-size: 32rpx;  font-weight: 400; line-height: 1.3;  letter-spacing: -0.32rpx; }  /* 默认正文 */
+.t-caption     { font-size: 28rpx;  font-weight: 400; line-height: 1.4; }                             /* 细则说明 */
+.t-mono-button { font-size: 32rpx;  font-weight: 500; letter-spacing: 0.16rpx; }                      /* 按钮标签(配 .font-mono) */
+.t-mono-eyebrow{ font-size: 22rpx;  font-weight: 500; letter-spacing: 1.1rpx; }                       /* 区块眉标(配 .font-mono) */
+
+/* ============ 3. 间距令牌 ============ */
+/* 4px 基数:xs 4 / sm 8 / md 12 / lg 16 / xl 20 / 2xl 24 / 3xl 32 / section 80(px) */
+/* 类内边距 = 卡片内边距 24px;统计卡 32px;区块上下 80px */
+
+/* ============ 4. 基础组件类 ============ */
+
+/* 深色区块(hero / research):整段使用,内边距 80rpx 水平 · 160rpx 垂直 */
+.band-dark {
+  background: var(--color-canvas-dark);
+  color: var(--color-on-dark);
+  padding: 160rpx 64rpx;
+}
+
+/* 白色区块 */
+.band-light {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  padding: 160rpx 64rpx;
+}
+
+/* 区块眉标:大写 mono,正文灰 */
+.eyebrow {
+  font-size: 22rpx;
+  font-weight: 500;
+  letter-spacing: 1.1rpx;
+  text-transform: uppercase;
+  font-family: "JetBrains Mono", Menlo, Consolas, monospace;
+  color: var(--color-body);
+}
+.band-dark .eyebrow { color: var(--color-on-dark); }
+
+/* 主按钮:黑色 8rpx 圆角矩形,大写 mono 标签;一屏只出现一个 */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: var(--color-on-dark);
+  border-radius: var(--rounded-sm);
+  padding: 8rpx 48rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  letter-spacing: 0.16rpx;
+  font-family: "JetBrains Mono", Menlo, Consolas, monospace;
+  text-transform: uppercase;
+  line-height: 2;
+}
+.btn-primary::after { border: none; }
+
+/* hero 次级按钮:薄荷色,仅 hero 场景使用 */
+.btn-mint {
+  background: var(--color-accent-mint);
+  color: var(--color-ink);
+  border-radius: var(--rounded-sm);
+}
+
+/* 深底上的半透明按钮 */
+.btn-ghost-dark {
+  background: var(--color-surface-dark-soft);
+  color: var(--color-on-dark);
+  border-radius: var(--rounded-sm);
+}
+
+/* 描边按钮(白底,配定价/开关场景) */
+.btn-outline {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  border: 1rpx solid var(--color-hairline);
+  border-radius: var(--rounded-xs);
+}
+
+/* 浅底卡片:8rpx 圆角 + 1px 描边,禁止投影 */
+.card {
+  background: var(--color-canvas);
+  border: 1rpx solid var(--color-hairline);
+  border-radius: var(--rounded-sm);
+  padding: 48rpx;
+}
+
+/* 深底卡片:描边换成深色软线 */
+.card-dark {
+  background: var(--color-canvas-dark);
+  color: var(--color-on-dark);
+  border: 1rpx solid var(--color-surface-dark-soft);
+  border-radius: var(--rounded-sm);
+  padding: 48rpx;
+}
+
+/* 统计卡:薄荷/长春花等粉彩填充,大数字 + mono 眉标 */
+.card-stat {
+  border-radius: var(--rounded-sm);
+  padding: 64rpx;
+  background: var(--color-accent-mint);
+}
+.card-stat.tinted-periwinkle { background: var(--color-accent-periwinkle); }
+.card-stat .stat-number { font-size: 80rpx; font-weight: 500; line-height: 1.2; letter-spacing: -1.6rpx; }
+.card-stat .stat-label {
+  font-size: 22rpx; font-weight: 500; letter-spacing: 1.1rpx;
+  text-transform: uppercase; font-family: "JetBrains Mono", Menlo, Consolas, monospace;
+}
+
+/* 数据表 */
+.table-header {
+  background: var(--color-hairline);
+  color: var(--color-body);
+  font-size: 22rpx; font-weight: 500; letter-spacing: 1.1rpx;
+  text-transform: uppercase; font-family: "JetBrains Mono", Menlo, Consolas, monospace;
+  padding: 24rpx 32rpx;
+}
+.table-row {
+  background: var(--color-canvas);
+  border-bottom: 1rpx solid var(--color-hairline);
+  padding: 24rpx 32rpx;
+}
+
+/* 行内标签徽章(浅底) */
+.badge {
+  background: var(--color-hairline);
+  border: 1rpx solid var(--color-hairline);
+  border-radius: var(--rounded-sm);
+  padding: 4rpx 16rpx;
+  font-size: 32rpx;
+}
+
+/* 深底徽章 */
+.band-dark .badge {
+  background: var(--color-surface-dark-soft);
+  color: var(--color-on-dark);
+  border: none;
+}
+
+/* 页脚巨型字标:边缘贴边、颜色淡至 hairline,作页脚分隔收尾 */
+.wordmark-banner {
+  font-size: 128rpx;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -3.84rpx;
+  color: var(--color-hairline);
+  text-align: center;
+}
