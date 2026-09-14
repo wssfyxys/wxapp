@@ -61,7 +61,7 @@ git push origin feature/login
 
 本仓库的规范通过三层机制强制执行,**不依赖自觉**:
 
-1. **AI 工具规则文件**:`.cursor/rules/`、`AGENTS.md`、`CLAUDE.md`、`GEMINI.md`、`.windsurfrules`、`.cursorrules`、`.github/copilot-instructions.md` —— AI 编码助手会自动读取并遵守
+1. **AI 工具规则文件**:`AGENTS.md`(zcode 等 GLM 系工具自动读取)、`.cursor/rules/develop.mdc`(Cursor 自动读取)—— AI 编码助手会自动加载并遵守
 2. **本地 git 钩子**(每人一次性启用):`git config core.hooksPath .githooks`,之后每次提交都会自动运行样式检查并校验提交信息格式,不合规直接拦截
 3. **远端 CI + 分支保护**:每次 PR 自动运行 `scripts/check-style.js`,不通过则 PR 显示红叉无法合并;`main` / `dev` 的分支保护规则拦截一切绕过行为
 
