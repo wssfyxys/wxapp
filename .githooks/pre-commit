@@ -1,0 +1,9 @@
+#!/bin/sh
+# pre-commit 钩子:提交前强制执行样式/工程检查
+# 启用方式(每人一次性执行):git config core.hooksPath .githooks
+node scripts/check-style.js
+if [ $? -ne 0 ]; then
+  echo ""
+  echo "提交已阻止:未通过 scripts/check-style.js 检查,请按上方提示修正后重试。"
+  exit 1
+fi
