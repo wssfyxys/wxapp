@@ -5,9 +5,10 @@
   text-align: center;
   margin: 60rpx 0;
 }
+
 .card {
-  background: #fff;
-  border-radius: 16rpx;
+  background: var(--color-canvas);
+  border-radius: var(--rounded-sm);
   padding: 40rpx;
   margin-bottom: 40rpx;
   display: flex;
