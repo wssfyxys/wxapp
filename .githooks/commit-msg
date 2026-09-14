@@ -1,0 +1,11 @@
+#!/bin/sh
+# commit-msg 钩子:校验提交信息格式(类型: 描述)
+# 允许类型:feat / fix / style / refactor / docs / chore,描述不超过 60 字符
+msg=$(cat "$1")
+if ! echo "$msg" | grep -qE "^(feat|fix|style|refactor|docs|chore)(\([^)]+\))?: .{1,60}"; then
+  echo ""
+  echo "提交已阻止:提交信息不符合规范。"
+  echo "正确格式:类型: 简短描述,例如 feat: 新增商品详情页"
+  echo "允许的类型:feat fix style refactor docs chore"
+  exit 1
+fi
